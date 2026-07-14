@@ -233,4 +233,5 @@ python silver/transform_silver.py --bronze-dir bronze --silver-dir silver --s3-b
 python gold/create_gold.py --silver-dir silver --gold-dir gold --s3-bucket SEU_BUCKET
 ```
  
-TESTE DE ACESSO - 13/07 
+Link Video Apresentação:
+https://youtu.be/XaqOZN44MCQ
