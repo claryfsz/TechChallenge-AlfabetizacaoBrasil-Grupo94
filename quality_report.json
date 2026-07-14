@@ -1,0 +1,37 @@
+[
+  {
+    "table_name": "municipio",
+    "n_rows": 5571,
+    "n_duplicates": 0,
+    "null_counts": {
+      "id_municipio_tse": 1,
+      "id_municipio_rf": 1,
+      "id_municipio_bcb": 1,
+      "capital_uf": 1,
+      "id_comarca": 1,
+      "id_regiao_saude": 1,
+      "nome_regiao_saude": 1,
+      "id_microrregiao": 1,
+      "nome_microrregiao": 1,
+      "id_mesorregiao": 1,
+      "nome_mesorregiao": 1,
+      "id_regiao_metropolitana": 4139,
+      "nome_regiao_metropolitana": 4139,
+      "ddd": 1
+    },
+    "key_is_unique": null,
+    "issues": [
+      "Colunas com valores nulos: ['id_municipio_tse', 'id_municipio_rf', 'id_municipio_bcb', 'capital_uf', 'id_comarca', 'id_regiao_saude', 'nome_regiao_saude', 'id_microrregiao', 'nome_microrregiao', 'id_mesorregiao', 'nome_mesorregiao', 'id_regiao_metropolitana', 'nome_regiao_metropolitana', 'ddd']"
+    ],
+    "checked_at": "2026-07-12T12:28:40.838728+00:00"
+  },
+  {
+    "table_name": "uf",
+    "n_rows": 27,
+    "n_duplicates": 0,
+    "null_counts": {},
+    "key_is_unique": null,
+    "issues": [],
+    "checked_at": "2026-07-12T12:28:40.838728+00:00"
+  }
+]
