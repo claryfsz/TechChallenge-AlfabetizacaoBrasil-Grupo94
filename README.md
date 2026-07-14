@@ -56,7 +56,7 @@ O pipeline segue a Arquitetura Medalhão, com ingestão híbrida batch + streami
 | Armazenamento | AWS S3 + Parquet | Custo baixo, formato colunar eficiente para leitura analítica |
 | Processamento | pandas + PyArrow | Volume de dados do desafio não justifica overhead operacional de um cluster Spark |
 | Consulta | AWS Athena | Serverless, paga por consulta, sem infraestrutura para gerenciar |
-| Streaming | Simulação em Python | Suficiente para demonstrar a arquitetura híbrida no prazo do desafio |
+| Streaming | Simulação em Python | Suficiente para demonstrar a arquitetura híbrida |
 | Dashboard | Power BI | Conecta direto na camada Gold para visualização de negócio |
 | Versionamento | GitHub (branches + PR) | Rastreabilidade da evolução do pipeline |
 
@@ -138,14 +138,6 @@ ambiente Windows — durante a execução, enfrentamos erros de incompatibilidad
 e pandas (`_ARRAY_API not found`), que exigiu reinstalar essas bibliotecas em versões compatíveis
 antes de conseguir rodar a ingestão.
 
-## Se tivéssemos mais tempo
-
-Utilizaríamos o Kafka para aproximar mais da realidade de um pipeline de streaming em produção.
-Também faltou enriquecer a base com mais fontes externas, principalmente ligadas ao orçamento de
-estados e municípios para educação (FUNDEB) — seria importante entender se o orçamento investido em
-educação tem impacto real no desempenho de alfabetização, o que abriria caminho para uma análise
-causal e não só descritiva.
-
 ## Valor de negócio (resumo executivo)
 
 O projeto automatiza e organiza diferentes bases de dados de alfabetização, criando uma fonte única
@@ -191,7 +183,7 @@ project/
 ├── gold/           # Datasets analíticos finais
 ├── streaming/       # Simulação de eventos em tempo quase real
 ├── quality/         # Scripts de validação de qualidade de dados
-├── docs/            # Documentação técnica e scripts de apoio
+├── evidencias/      # Documentação mostrando como funciona 
 └── diagrams/         # Diagramas de arquitetura
 ```
 
@@ -208,17 +200,10 @@ A partir da execução real do pipeline, obtivemos:
 momento — a estrutura particionada por ano já está pronta para incorporar novos anos assim que
 forem publicados, sem necessidade de reprocessar o histórico.
 
-## Estratégia de Git
-
-- Branches: `main`, `feature/bronze`, `feature/silver`, `feature/gold`, `feature/streaming`,
-  `feature/readme`
-- Fluxo: feature branch → Pull Request → `main`
-- Commits pequenos, descritivos, no padrão Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`)
-
 ## Evidências de execução em nuvem
 
 A infraestrutura AWS não fica ativa após a entrega. Como evidência de que o pipeline foi executado
-em nuvem real (não apenas simulado localmente), este repositório inclui em `docs/evidencias/`:
+em nuvem real (não apenas simulado localmente), este repositório inclui em `evidencias/`:
 - Screenshots do bucket S3 com a estrutura bronze/silver/gold particionada
 - Screenshot da tabela registrada no Glue Data Catalog / consulta executada no Athena
 - Logs de execução dos jobs (ingestão bronze e streaming)
